@@ -1,5 +1,12 @@
 # Orion Social
 
+## Feature spread
+
+Full gallery + Battle Mode, Live mesh, gifts, seal, map: **[docs/FEATURES.md](./docs/FEATURES.md)**
+
+![Lobby + Live Network](./docs/screenshots/01-lobby-live-network.png)
+
+
 ![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
 
 Invite-only community app (~**1000** members) on **Supabase** (free Postgres + Auth + Realtime): **DM messaging** with optional **zero-server-secret Orion sealing** (ephemeral secret + ECDH wrap to peers), **public browseable Live rooms**, an interactive **3D live network map**, and **up to 7 on-camera publishers** per room in a **TikTok-style grid** — mesh WebRTC (signaling in Postgres, **no video storage** wired in).
