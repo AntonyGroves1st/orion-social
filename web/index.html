@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="description" content="Orion Social — capped community messaging + live calls" />
+    <meta name="theme-color" content="#020806" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-title" content="Orion Social" />
+    <title>Orion Social</title>
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <link rel="icon" href="/app-icon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/app-icon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=Orbitron:wght@600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <aside id="open-vite-hint" class="file-protocol-hint" hidden>
+      <strong>You opened HTML from disk (<code>file://</code>).</strong>
+      Orion Social runs through Vite, so ES modules cannot load → white screen here.
+      <ol>
+        <li>Open a terminal: <code>cd /d "F:\socialmedia G\orion-social\web"</code></li>
+        <li><code>npm run dev</code></li>
+        <li>Open <strong>http://localhost:5732</strong></li>
+      </ol>
+      <small>Or double-click <code>Start-Orion-Social.bat</code> from the repo root.</small>
+    </aside>
+    <script>
+      ;(function () {
+        try {
+          var ua = navigator.userAgent || ''
+          var androidWv = /Android/i.test(ua) && /;\s*wv\)/.test(ua)
+          var cap = window.Capacitor
+          var plat = cap && cap.getPlatform ? cap.getPlatform() : 'web'
+          if (/Brave/i.test(ua)) {
+            document.documentElement.classList.add('orion-brave')
+          }
+          if (/Chrome\//i.test(ua) || /Brave/i.test(ua)) {
+            document.documentElement.classList.add('orion-safe-video')
+          }
+          if (androidWv || plat === 'android' || plat === 'ios') {
+            document.documentElement.classList.add('orion-native')
+          }
+        } catch (_) {}
+      })()
+    </script>
+    <script>
+      ;(function () {
+        try {
+          if (location.protocol === 'file:') {
+            var el = document.getElementById('open-vite-hint')
+            if (el) el.removeAttribute('hidden')
+          }
+        } catch (_) {}
+      })()
+    </script>
+
+    <div id="root"></div>
+
+    <noscript>
+      <div class="file-protocol-hint" style="display: block">
+        Enable JavaScript. Orion Social requires it.
+      </div>
+    </noscript>
+
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

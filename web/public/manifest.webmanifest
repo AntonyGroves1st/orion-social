@@ -1,0 +1,19 @@
+{
+  "name": "Orion Social",
+  "short_name": "Orion",
+  "description": "Opt-in community mesh messaging, live rooms, and phone node mode.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "theme_color": "#020806",
+  "background_color": "#020806",
+  "icons": [
+    {
+      "src": "/app-icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

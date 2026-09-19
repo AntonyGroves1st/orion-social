@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Orion Social orbit network">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="46%" r="72%">
+      <stop offset="0%" stop-color="#07391f"/>
+      <stop offset="54%" stop-color="#020806"/>
+      <stop offset="100%" stop-color="#000000"/>
+    </radialGradient>
+    <radialGradient id="core" cx="38%" cy="30%" r="70%">
+      <stop offset="0%" stop-color="#baff71"/>
+      <stop offset="35%" stop-color="#4cff5f"/>
+      <stop offset="100%" stop-color="#0b8f35"/>
+    </radialGradient>
+    <linearGradient id="orbit" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#27ff50"/>
+      <stop offset="45%" stop-color="#6fff3d"/>
+      <stop offset="100%" stop-color="#10d454"/>
+    </linearGradient>
+    <filter id="glow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feColorMatrix in="blur" type="matrix" values="0 0 0 0 0.08 0 0 0 0 1 0 0 0 0 0.25 0 0 0 0.88 0" result="greenGlow"/>
+      <feMerge>
+        <feMergeNode in="greenGlow"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="soft" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="2.5"/>
+    </filter>
+  </defs>
+
+  <rect width="512" height="512" rx="104" fill="url(#bg)"/>
+  <g opacity=".7">
+    <circle cx="84" cy="120" r="2" fill="#43ff58"/>
+    <circle cx="146" cy="70" r="1.8" fill="#43ff58"/>
+    <circle cx="386" cy="82" r="2.2" fill="#43ff58"/>
+    <circle cx="430" cy="172" r="1.8" fill="#43ff58"/>
+    <circle cx="80" cy="348" r="2.4" fill="#43ff58"/>
+    <circle cx="216" cy="414" r="1.8" fill="#43ff58"/>
+    <circle cx="382" cy="396" r="2" fill="#43ff58"/>
+  </g>
+
+  <g fill="none" stroke="url(#orbit)" stroke-linecap="round" filter="url(#glow)">
+    <ellipse cx="256" cy="266" rx="214" ry="78" stroke-width="7" transform="rotate(-7 256 266)"/>
+    <ellipse cx="256" cy="266" rx="210" ry="78" stroke-width="5.5" transform="rotate(18 256 266)"/>
+    <ellipse cx="256" cy="266" rx="194" ry="61" stroke-width="4.5" transform="rotate(-31 256 266)"/>
+    <path d="M71 312c55-41 117-69 185-84 69-15 132-14 188 1" stroke-width="3.5" opacity=".58"/>
+  </g>
+
+  <circle cx="256" cy="248" r="63" fill="#0fff55" opacity=".22" filter="url(#soft)"/>
+  <circle cx="256" cy="248" r="50" fill="url(#core)" filter="url(#glow)"/>
+  <path d="M228 232c22-30 66-16 76 18-17-18-48-22-76-18Z" fill="#c8ff72" opacity=".55"/>
+  <path d="M247 206c21-7 48 8 57 33" fill="none" stroke="#caff6a" stroke-width="5" stroke-linecap="round" opacity=".55"/>
+
+  <g filter="url(#glow)">
+    <path d="M61 192 82 178l24 12v28l-24 13-23-13Z" fill="#25df59"/>
+    <path d="M130 139 154 126l25 14v29l-25 14-25-14Z" fill="#fff400"/>
+    <path d="M319 112 342 99l23 14v27l-23 13-23-13Z" fill="#ff6f84"/>
+    <path d="M406 145 431 132l25 14v28l-25 15-25-15Z" fill="#23e2b6"/>
+    <path d="M440 265 466 250l26 15v30l-26 15-26-15Z" fill="#28eb58"/>
+    <path d="M352 340 377 326l25 14v29l-25 15-25-15Z" fill="#fff027"/>
+    <path d="M175 392 199 379l25 14v28l-25 14-25-14Z" fill="#ff6f84"/>
+    <path d="M85 331 110 317l25 15v29l-25 15-25-15Z" fill="#22d7c9"/>
+  </g>
+</svg>

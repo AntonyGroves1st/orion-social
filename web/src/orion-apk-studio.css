@@ -1,0 +1,1453 @@
+/**
+ * Orion APK — match EXE studio room (stage + filmstrip + synced layout).
+ */
+
+.orion-native .live-mobile-role-strip,
+.orion-native .mobile-bg-cta,
+.orion-native .live-viewer-hint,
+.orion-native .tiktok-live-hint,
+.orion-native .matrix-status-line,
+.orion-native .orion-build-stamp,
+.orion-native .room-invite-bar,
+.orion-native .live-presence-panel--inline {
+  display: none !important;
+}
+
+@media (max-width: 899px) {
+  .orion-native .live-room--studio {
+    padding-top: calc(48px + env(safe-area-inset-top, 0px)) !important;
+    padding-bottom: calc(68px + env(safe-area-inset-bottom, 0px)) !important;
+    overflow-y: auto !important;
+    height: 100svh !important;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .orion-native .live-room--studio .tiktok-live-root.studio-live {
+    min-height: min-content !important;
+  }
+
+  .orion-native .live-toolbar--studio {
+    position: fixed !important;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1001;
+    display: flex !important;
+    flex-direction: column !important;
+    margin: 0 !important;
+    border-radius: 0 0 12px 12px !important;
+    overflow: hidden !important;
+    grid-template-columns: unset !important;
+  }
+
+  .orion-native .live-toolbar--studio.live-toolbar--slim {
+    min-height: 44px !important;
+    padding: 6px 8px max(6px, env(safe-area-inset-top)) !important;
+    gap: 0 !important;
+  }
+
+.orion-native .live-toolbar-row--top .live-toolbar-nav {
+  flex: 0 1 auto;
+  min-width: 0;
+  overflow: visible;
+  gap: 4px !important;
+}
+
+.orion-native .live-toolbar-row--top {
+  display: flex !important;
+  align-items: center;
+  gap: 6px;
+  width: 100%;
+}
+
+.orion-native .live-toolbar-row--top .live-toolbar-meta {
+  flex: 1 1 auto;
+  min-width: 0;
+  margin-left: auto;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 6px !important;
+  overflow: visible;
+  flex-wrap: nowrap;
+}
+
+.orion-native .live-toolbar-meta .live-presence-fab--inline {
+  display: inline-flex !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  position: static !important;
+  top: auto !important;
+  right: auto !important;
+  flex: 0 0 auto;
+  flex-shrink: 0;
+  padding: 3px 8px !important;
+  min-height: 26px !important;
+  border-radius: 999px;
+  border: 1px solid rgba(57, 255, 136, 0.45) !important;
+  background: rgba(0, 0, 0, 0.4) !important;
+  color: #39ff88 !important;
+  box-shadow: none !important;
+}
+
+.orion-native .live-toolbar-meta .live-presence-fab--inline .live-presence-fab-label {
+  display: inline !important;
+  font-size: 8px !important;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: rgba(232, 255, 244, 0.85) !important;
+}
+
+.orion-native .live-toolbar-meta .live-presence-fab--inline .live-presence-fab-count {
+  font-size: 11px !important;
+  font-weight: 800;
+}
+
+.orion-native .live-toolbar--studio .matrix-session-id {
+  display: none !important;
+}
+
+.mobile-room-footer-inroom {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1.2 1 0;
+  min-width: 0;
+  padding: 0 2px;
+}
+
+.mobile-room-footer-inroom .live-presence-fab--inline {
+  display: inline-flex !important;
+  width: 100%;
+  max-width: 120px;
+  justify-content: center;
+  padding: 4px 8px !important;
+  min-height: 32px !important;
+  border-radius: 999px;
+  border: 1px solid rgba(57, 255, 136, 0.45) !important;
+  background: rgba(0, 0, 0, 0.35) !important;
+  color: #39ff88 !important;
+  box-shadow: none;
+  position: static !important;
+}
+
+.mobile-room-footer-inroom .live-presence-fab--inline .live-presence-fab-label {
+  display: inline !important;
+  font-size: 8px !important;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.orion-native .mobile-room-footer-inroom .live-presence-fab--inline {
+  max-width: none;
+}
+
+.orion-native .live-toolbar-meta .live-presence-fab--inline {
+  display: inline-flex !important;
+  flex-shrink: 0;
+  max-width: none;
+}
+
+.orion-native .live-toolbar-nav .studio-nav-btn--thread,
+.orion-native .live-toolbar-nav .matrix-link-back.studio-nav-btn--thread {
+  padding: 4px 8px !important;
+  min-height: 28px !important;
+  font-size: 10px !important;
+  letter-spacing: 0.04em;
+  flex: 0 0 auto;
+}
+
+.orion-native .live-toolbar-nav .matrix-link-back:not(.studio-nav-btn--thread) {
+  padding: 4px 8px !important;
+  min-height: 28px !important;
+  font-size: 10px !important;
+  flex: 0 0 auto;
+}
+
+  .orion-native .live-toolbar--studio .live-toolbar-plus-fab {
+    width: 30px;
+    height: 30px;
+    min-width: 30px;
+    min-height: 30px;
+    font-size: 18px;
+  }
+
+  .orion-native .live-toolbar--studio .live-toolbar-row--controls {
+    display: none !important;
+  }
+
+  .orion-native .live-toolbar--studio .matrix-session-id {
+    display: none !important;
+  }
+
+  .orion-native .mobile-room-footer,
+  .orion-native .mobile-room-footer--portaled {
+    display: flex !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+    opacity: 1 !important;
+    animation: none !important;
+    z-index: 130 !important;
+  }
+
+  .orion-native .mobile-room-footer .mobile-room-action {
+    flex: 1 1 0;
+    min-width: 44px;
+    max-width: 64px;
+    font-size: 9px;
+  }
+
+  .orion-native .mobile-room-footer--apk .mobile-room-action {
+    max-width: none;
+    font-size: 10px;
+    padding: 6px 4px;
+  }
+
+  .orion-native .mobile-room-footer--apk .mobile-room-action svg {
+    width: 22px;
+    height: 22px;
+  }
+
+  .orion-native .studio-live.tiktok-live-root {
+    height: auto !important;
+    min-height: 0 !important;
+    overflow: visible !important;
+    padding-bottom: 0 !important;
+  }
+
+  .orion-native .studio-layout.tiktok-live-main {
+    display: flex !important;
+    flex-direction: column !important;
+    grid-template-columns: unset !important;
+    height: auto !important;
+    min-height: 0 !important;
+    overflow: visible !important;
+    gap: 6px !important;
+    padding: 0 6px 6px !important;
+  }
+
+  .orion-native .studio-stage-column {
+    flex: 0 0 auto;
+    width: 100%;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  /* Main stage — same slot count as EXE (2–8 grid classes from index.css) */
+  .orion-native .studio-stage-column .tiktok-stage-shell {
+    display: grid !important;
+    flex: 0 0 auto !important;
+    min-height: 0 !important;
+    height: auto !important;
+    max-height: none !important;
+    gap: 5px !important;
+  }
+
+  /* Keep stage height during battle/royale — never collapse cams */
+  .orion-native .studio-stage-column .tiktok-stage-shell--battle,
+  .orion-native .studio-stage-column .tiktok-stage-shell--royale-live,
+  .orion-native .studio-stage-column .tiktok-stage-shell--royale,
+  .orion-native .studio-stage-column .tiktok-stage-shell[class*='--grid-'] {
+    --orion-stage-h: min(23svh, 216px);
+    min-height: var(--orion-stage-h) !important;
+    height: var(--orion-stage-h) !important;
+    max-height: var(--orion-stage-h) !important;
+  }
+
+  .orion-native .studio-stage-column .tiktok-stage-shell--battle,
+  .orion-native .studio-stage-column .tiktok-stage-shell--royale-live {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    grid-template-rows: minmax(0, 1fr) !important;
+  }
+
+  /* Tiles fill grid cells and shrink — do not lock 9:14 phone aspect */
+  .orion-native .studio-stage-column .tiktok-stage-shell .tiktok-stage {
+    aspect-ratio: auto !important;
+    max-height: none !important;
+    min-height: 0 !important;
+    height: 100% !important;
+    width: 100% !important;
+  }
+
+  /* Filmstrip — same thumbs as EXE (was crushed to 64px — invisible) */
+  .orion-native .tiktok-filmstrip.studio-filmstrip--guest-rail {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    align-items: flex-start !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    max-height: none !important;
+    min-height: 72px !important;
+    padding: 4px 6px 6px !important;
+    gap: 6px !important;
+    flex: 0 0 auto !important;
+    width: 100% !important;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+    background: rgba(0, 0, 0, 0.28) !important;
+    border: 1px solid rgba(57, 255, 136, 0.18) !important;
+    border-radius: 12px !important;
+    order: 2;
+  }
+
+  .orion-native .studio-stage-column .tiktok-stage-shell {
+    order: 1;
+  }
+
+  .orion-native .apk-inline-chat {
+    order: 3;
+    flex: 0 0 auto;
+    width: 100%;
+    min-width: 0;
+    border-radius: 12px;
+    border: 1px solid rgba(57, 255, 136, 0.16);
+    background: rgba(2, 14, 10, 0.92);
+    overflow: hidden;
+  }
+
+  .orion-native .apk-inline-chat .tiktok-live-chat--compact {
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+    background: transparent;
+    border: 0;
+    box-shadow: none;
+  }
+
+  .orion-native .apk-inline-chat .tiktok-live-chat-head--compact {
+    padding: 6px 10px 4px;
+    border-bottom: 1px solid rgba(57, 255, 136, 0.1);
+  }
+
+  .orion-native .apk-inline-chat .tiktok-live-chat-head--compact .tiktok-live-chat-title {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #39ff88;
+  }
+
+  .orion-native .apk-inline-chat .tiktok-live-chat-stream--compact {
+    max-height: min(32svh, 240px);
+    min-height: 100px;
+    overflow-y: auto;
+    padding: 4px 8px 6px;
+    scrollbar-width: thin;
+  }
+
+  .orion-native .apk-inline-chat .tiktok-live-msg--compact {
+    padding: 1px 0;
+    margin: 0;
+    line-height: 1.2;
+    font-size: 10px;
+    gap: 4px;
+    display: flex !important;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+  .orion-native .apk-inline-chat .tiktok-live-msg-edit-btn {
+    display: inline-flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    min-height: 22px !important;
+    padding: 2px 8px !important;
+    font-size: 9px !important;
+    margin-left: auto;
+  }
+
+  .orion-native .apk-inline-chat .tiktok-live-msg-edit {
+    width: 100%;
+    flex-basis: 100%;
+  }
+
+  .orion-native .battle-stage-reset-bar {
+    margin: 4px 0 6px;
+    padding: 5px 8px;
+  }
+
+  .orion-native .battle-stage-reset-btn {
+    min-height: 30px !important;
+    font-size: 10px !important;
+  }
+
+  .orion-native .apk-inline-chat .tiktok-live-msg-who {
+    font-size: 9px;
+  }
+
+  .orion-native .apk-inline-chat .tiktok-live-msg-body {
+    font-size: 10px;
+    word-break: break-word;
+  }
+
+  .orion-native .apk-inline-chat .tiktok-live-chat-compose {
+    padding: 4px 6px 6px;
+    border-top: 1px solid rgba(57, 255, 136, 0.1);
+  }
+
+  .orion-native .apk-inline-chat .tiktok-live-chat-input {
+    font-size: 11px;
+    min-height: 32px;
+    padding: 4px 8px;
+  }
+
+  .orion-native .apk-inline-chat .tiktok-live-chat-send {
+    font-size: 10px;
+    min-height: 32px;
+    padding: 4px 10px;
+  }
+
+  .orion-native .apk-inline-chat .live-emoji-menu summary {
+    min-height: 32px;
+    font-size: 14px;
+  }
+
+  .orion-native .studio-sidebar--apk-inline {
+    display: flex !important;
+    position: relative !important;
+    transform: none !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+    max-height: none !important;
+    width: 100% !important;
+    flex: 0 0 auto !important;
+    order: 4;
+  }
+
+  .orion-native .studio-sidebar.studio-sidebar--mobile-sheet.studio-sidebar--people-open,
+  .orion-native .studio-sidebar.studio-sidebar--mobile-sheet.studio-sidebar--chat-open {
+    transform: translateY(0) !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+  }
+
+  .orion-native .studio-stage-column .tiktok-stage-shell--battle,
+  .orion-native .studio-stage-column .tiktok-stage-shell--royale-live,
+  .orion-native .studio-stage-column .tiktok-stage-shell--grid-4,
+  .orion-native .studio-stage-column .tiktok-stage-shell--grid-6,
+  .orion-native .studio-stage-column .tiktok-stage-shell--grid-8 {
+    display: grid !important;
+    gap: 3px !important;
+    --orion-stage-h: min(23svh, 216px);
+    flex: 0 0 var(--orion-stage-h) !important;
+    height: var(--orion-stage-h) !important;
+    min-height: var(--orion-stage-h) !important;
+    max-height: var(--orion-stage-h) !important;
+    overflow: hidden !important;
+  }
+
+  .orion-native .studio-stage-column .tiktok-stage-shell--battle,
+  .orion-native .studio-stage-column .tiktok-stage-shell--royale-live {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    grid-template-rows: minmax(0, 1fr) !important;
+  }
+
+  /* 4 = half the 2-cam cells → 2×2 */
+  .orion-native .studio-stage-column .tiktok-stage-shell--grid-4 {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    grid-template-rows: repeat(2, minmax(0, 1fr)) !important;
+  }
+
+  /* 6 = shrink again → 3×2 */
+  .orion-native .studio-stage-column .tiktok-stage-shell--grid-6 {
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    grid-template-rows: repeat(2, minmax(0, 1fr)) !important;
+  }
+
+  /* 8 = shrink again → 4×2 */
+  .orion-native .studio-stage-column .tiktok-stage-shell--grid-8 {
+    grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+    grid-template-rows: repeat(2, minmax(0, 1fr)) !important;
+  }
+
+  .orion-native .studio-stage-column .tiktok-stage-shell--battle .tiktok-stage,
+  .orion-native .studio-stage-column .tiktok-stage-shell[class*='--grid-'] .tiktok-stage {
+    max-width: none !important;
+    width: 100% !important;
+    height: 100% !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    aspect-ratio: auto !important;
+    overflow: hidden !important;
+  }
+
+  .orion-native .studio-stage-column .tiktok-stage-shell--battle .tiktok-stage-video,
+  .orion-native .studio-stage-column .tiktok-stage-shell[class*='--grid-'] .tiktok-stage-video,
+  .orion-native .studio-stage-column .tiktok-stage-shell[class*='--grid-'] .remote-video-wrap {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+  }
+
+  .orion-native .cam-layout-bar {
+    display: none !important;
+    visibility: hidden !important;
+    height: 0 !important;
+    max-height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+    pointer-events: none !important;
+  }
+
+  .orion-native .tiktok-filmstrip.studio-filmstrip:not(.studio-filmstrip--guest-rail),
+  .orion-native .studio-filmstrip--guest-slots {
+    display: none !important;
+  }
+
+  /* Extra cams 3–7 — always show as icon strip under the 2 hero cams */
+  .orion-native .tiktok-filmstrip.studio-filmstrip--guest-rail {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    align-items: flex-start !important;
+    gap: 6px !important;
+    width: 100% !important;
+    max-height: 76px !important;
+    height: auto !important;
+    min-height: 64px !important;
+    margin: 4px 0 0 !important;
+    padding: 6px !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    pointer-events: auto !important;
+    order: 2;
+    background: rgba(0, 0, 0, 0.45) !important;
+    border: 1px solid rgba(57, 255, 136, 0.2) !important;
+    border-radius: 12px !important;
+  }
+
+  .orion-native .studio-filmstrip--guest-rail .studio-thumb-card {
+    width: 56px !important;
+    min-width: 56px !important;
+    flex: 0 0 56px !important;
+  }
+
+  .orion-native .studio-filmstrip--guest-rail .studio-thumb-media {
+    aspect-ratio: 1 / 1 !important;
+    max-height: 56px !important;
+    border-radius: 10px !important;
+  }
+
+  .orion-native .studio-filmstrip--guest-rail .studio-thumb-label {
+    font-size: 8px !important;
+    line-height: 1.1 !important;
+    max-width: 56px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .orion-native .studio-thumb-media {
+    aspect-ratio: 9 / 14 !important;
+    max-height: 72px !important;
+  }
+
+  .orion-native .studio-thumb-label {
+    font-size: 9px !important;
+  }
+
+  /* Chat/battle/people rail — scroll with page on APK (no hidden sidebar) */
+  .orion-native .studio-sidebar,
+  .orion-native .studio-sidebar.studio-sidebar--battle-open,
+  .orion-native .studio-sidebar.studio-sidebar--chat-open,
+  .orion-native .studio-sidebar.studio-sidebar--people-open,
+  .orion-native .studio-sidebar.studio-sidebar--mobile-sheet {
+    position: relative !important;
+    left: auto !important;
+    right: auto !important;
+    bottom: auto !important;
+    width: 100% !important;
+    max-height: none !important;
+    min-height: 0 !important;
+    z-index: 2 !important;
+    border-radius: 12px !important;
+    transform: none !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+    transition: none !important;
+    flex: 0 0 auto !important;
+    box-shadow: none !important;
+    order: 4;
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+  }
+
+  /* Match web: tabs sit directly under filmstrip — no viewport-sticky gap */
+  .orion-native .studio-tabs {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    position: relative !important;
+    top: auto !important;
+    z-index: 3;
+    background: rgba(2, 14, 10, 0.96);
+    flex-shrink: 0;
+  }
+
+  .orion-native .studio-panels {
+    position: relative !important;
+    flex: 0 0 auto !important;
+    min-height: 0 !important;
+  }
+
+  .orion-native .studio-panel--chat.studio-panel--visible,
+  .orion-native .studio-panel--people.studio-panel--visible,
+  .orion-native .studio-panel--battle.studio-panel--visible {
+    position: relative !important;
+    display: flex !important;
+    visibility: visible !important;
+    min-height: min(44svh, 380px) !important;
+    max-height: min(52svh, 440px) !important;
+  }
+
+  /* Tight vertical stack for every tab (not only battle/royale) */
+  .orion-native .studio-layout.tiktok-live-main,
+  .orion-native .studio-layout--chat-open,
+  .orion-native .studio-layout--people-open,
+  .orion-native .studio-layout--battle-open,
+  .orion-native .studio-layout--royale {
+    gap: 4px !important;
+    padding-bottom: calc(72px + env(safe-area-inset-bottom, 0px)) !important;
+  }
+
+  .orion-native .studio-stage-column {
+    gap: 4px !important;
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+  }
+
+  .orion-native .tiktok-live-main.studio-layout {
+    padding-bottom: 0 !important;
+  }
+
+  .orion-native .live-room--studio .tiktok-live-root.studio-live {
+    scroll-padding-bottom: calc(72px + env(safe-area-inset-bottom, 0px)) !important;
+  }
+
+  /* Battle mode: pull rail up under filmstrip — kill the empty black gap.
+   * Also applies when Royale is active, since the royale cam grid (with its
+   * own eliminated/winner overlays) left the same gap uncovered before. */
+  .orion-native .studio-layout--battle-open,
+  .orion-native .studio-layout--royale {
+    gap: 4px !important;
+  }
+
+  .orion-native .studio-layout--battle-open .studio-stage-column,
+  .orion-native .studio-layout--royale .studio-stage-column {
+    flex: 0 0 auto !important;
+    gap: 4px !important;
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+  }
+
+  .orion-native .studio-layout--battle-open .studio-sidebar,
+  .orion-native .studio-layout--royale .studio-sidebar {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+    order: 4;
+  }
+
+  .orion-native .studio-layout--battle-open .studio-panel--battle.studio-panel--visible {
+    min-height: min(34svh, 280px) !important;
+    max-height: min(40svh, 340px) !important;
+  }
+
+  /* The sidebar's own top spacing (killed above, for the outer gap) used to be
+   * what kept this content clear of the sticky tab bar — give it back here,
+   * scoped to just the scrolling content, so the royale header doesn't render
+   * ghosted-out underneath the tabs. */
+  .orion-native .studio-layout--battle-open .studio-battle-scroll,
+  .orion-native .studio-layout--royale .studio-battle-scroll {
+    padding-top: 8px !important;
+  }
+
+  .orion-native .studio-layout--battle-open .studio-filmstrip--guest-rail,
+  .orion-native .studio-layout--royale .studio-filmstrip--guest-rail {
+    margin-bottom: 0 !important;
+  }
+
+  /* Menus are portaled — don't force upward absolute positioning on APK */
+  .orion-native .stage-slot-picker:not(.stage-slot-picker--portal),
+  .orion-native .live-toolbar-plus-menu {
+    max-height: min(44svh, 320px) !important;
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
+    flex-direction: column !important;
+    flex-wrap: nowrap !important;
+    z-index: 80 !important;
+  }
+
+  .orion-native .stage-slot-picker--portal {
+    position: fixed !important;
+    z-index: 12000 !important;
+  }
+
+  .orion-native .stage-slot--picker {
+    overflow: visible !important;
+    z-index: 40;
+  }
+
+  .orion-native .stage-slot--picker .tiktok-stage,
+  .orion-native .studio-thumb-card.stage-slot--picker {
+    overflow: visible !important;
+  }
+
+  .orion-native .studio-thumb-card {
+    transform: none !important;
+  }
+
+  .orion-native .studio-thumb-card:hover .studio-thumb-media {
+    transform: none !important;
+  }
+
+  .orion-native .studio-battle-engine-hidden,
+  .orion-native .studio-battle-engine-hidden .battle-mode,
+  .orion-native .studio-battle-engine-hidden .studio-battle-scroll {
+    position: fixed !important;
+    left: -12000px !important;
+    top: 0 !important;
+    width: 2px !important;
+    height: 2px !important;
+    max-height: 2px !important;
+    min-height: 0 !important;
+    overflow: hidden !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+    display: block !important;
+  }
+
+  .orion-native .studio-panel:not(.studio-panel--visible):not(.studio-battle-engine-hidden),
+  .orion-native .studio-panel[hidden] {
+    display: none !important;
+    visibility: hidden !important;
+    min-height: 0 !important;
+    max-height: 0 !important;
+    overflow: hidden !important;
+  }
+
+  .orion-native .studio-chat-wrap {
+    min-height: min(40svh, 340px) !important;
+    flex: 1 1 auto !important;
+  }
+
+  .orion-native .apk-self-pip {
+    /* Removed floating guest PiP — it leaked outside the stage ("cam slit") and ate settings. */
+    display: none !important;
+  }
+
+  .orion-native .live-local-offstage {
+    display: flex !important;
+    flex: 0 0 auto;
+    width: 100%;
+    max-width: 120px;
+    margin: 0 0 8px;
+    position: relative;
+    z-index: 6;
+    overflow: hidden;
+    pointer-events: auto;
+  }
+
+  .orion-native .live-room--local-on-stage .live-local-offstage,
+  .orion-native .live-room--stage-host .live-local-offstage {
+    display: none !important;
+  }
+
+  .orion-native .live-local-offstage-card {
+    position: relative;
+    width: 100%;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.45);
+    border: 1px solid rgba(57, 255, 136, 0.35);
+    background: #010604;
+  }
+
+  .orion-native .live-local-offstage-media {
+    position: relative;
+    aspect-ratio: 9 / 14;
+    max-height: 120px;
+    background: #000;
+  }
+
+  .orion-native .live-local-offstage-media video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .orion-native .live-local-offstage .stage-slot-fab,
+  .orion-native .live-local-offstage .stage-slot-bg-btn {
+    pointer-events: auto !important;
+    z-index: 20 !important;
+  }
+
+  .orion-native .live-local-offstage-label {
+    display: block;
+    padding: 4px 6px;
+    font-size: 8px;
+    letter-spacing: 0.04em;
+    color: rgba(232, 255, 244, 0.65);
+  }
+
+  /* Avoid GPU scale on WebRTC frames — was a crash/black-frame source on 7-cam APK. */
+  .orion-native .tiktok-stage.battle-host-stage .tiktok-stage-video,
+  .orion-native .tiktok-stage.battle-host-stage video,
+  .orion-native .studio-filmstrip--guest-rail .tiktok-stage-video {
+    transform: none !important;
+  }
+
+  .orion-native .studio-stage-column,
+  .orion-native .tiktok-stage-shell,
+  .orion-native .studio-filmstrip--guest-rail {
+    overflow: hidden;
+  }
+
+  .orion-native .stage-slot--local .tiktok-stage-video--local {
+    opacity: 1 !important;
+    visibility: visible !important;
+    object-fit: cover !important;
+    width: 100% !important;
+    height: 100% !important;
+    background: #000;
+  }
+
+  .orion-native .live-video,
+  .orion-native .tiktok-stage-video {
+    object-fit: cover !important;
+    width: 100% !important;
+    height: 100% !important;
+    background: #000;
+  }
+}
+
+.live-presence-fab--inline {
+  position: static;
+  top: auto;
+  right: auto;
+  flex: 0 0 auto;
+  flex-shrink: 0;
+  padding: 3px 8px;
+  min-height: 28px;
+  gap: 5px;
+  box-shadow: none;
+}
+
+.live-presence-fab--inline .live-presence-fab-count {
+  font-size: 12px;
+  font-weight: 800;
+  min-width: 16px;
+}
+
+.live-presence-fab--inline .live-presence-fab-label {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: rgba(232, 255, 244, 0.72);
+}
+
+.live-toolbar-plus-fab--open {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: nowrap;
+  flex-shrink: 0;
+  min-width: 0;
+}
+
+.orion-native .live-presence-fab--inline {
+  order: 1;
+  border-color: rgba(57, 255, 136, 0.42);
+  background: rgba(0, 0, 0, 0.35);
+}
+
+.orion-native .live-toolbar-plus-wrap .live-toolbar-plus-fab {
+  width: 30px;
+  height: 30px;
+  min-width: 30px;
+  min-height: 30px;
+  font-size: 18px;
+}
+
+/* Stage slot controls — compact corner chips on all APK tiles */
+.orion-native .tiktok-stage.stage-slot .stage-slot-fab,
+.orion-native .stage-slot--local .stage-slot-fab,
+.orion-native .studio-filmstrip--guest-rail .stage-slot-fab,
+.orion-native .studio-thumb-card .stage-slot-fab,
+.orion-native .stage-slot-fab--icon {
+  top: 2px !important;
+  right: 2px !important;
+  left: auto !important;
+  bottom: auto !important;
+  width: 16px !important;
+  height: 16px !important;
+  min-width: 16px !important;
+  min-height: 16px !important;
+  font-size: 11px !important;
+  border-width: 1px;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.55) !important;
+}
+
+.orion-native .tiktok-stage.stage-slot .stage-slot-fab:not(.stage-slot-fab--icon) {
+  width: 20px !important;
+  height: 20px !important;
+  min-width: 20px !important;
+  min-height: 20px !important;
+  top: 4px !important;
+  right: 4px !important;
+  font-size: 13px !important;
+}
+
+/* Host must always see mini-slot + menus on APK */
+.orion-native .live-room--stage-host .studio-filmstrip--guest-rail .stage-slot-fab,
+.orion-native .live-room--stage-host .studio-thumb-card .stage-slot-fab {
+  display: inline-flex !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  pointer-events: auto !important;
+  z-index: 30 !important;
+}
+
+.orion-native .tiktok-stage.stage-slot .stage-slot-bg-btn,
+.orion-native .stage-slot--local .stage-slot-bg-btn {
+  top: 4px !important;
+  right: 26px !important;
+  min-height: 18px !important;
+  height: 18px !important;
+  padding: 0 5px !important;
+  font-size: 8px !important;
+  letter-spacing: 0.04em;
+}
+
+.orion-native .tiktok-stage-badge {
+  top: 5px !important;
+  left: 5px !important;
+  max-width: calc(100% - 72px) !important;
+  font-size: 7px !important;
+  padding: 2px 5px !important;
+  letter-spacing: 0.12em;
+}
+
+.orion-native .like-power-badge {
+  top: auto !important;
+  bottom: 28px !important;
+  left: 5px !important;
+  padding: 2px 6px 2px 4px !important;
+  gap: 3px !important;
+  z-index: 13;
+}
+
+.orion-native .like-power-badge span {
+  font-size: 9px !important;
+}
+
+.orion-native .tiktok-stage.stage-slot .cam-volume-meter {
+  bottom: 4px !important;
+  left: 4px !important;
+  right: 4px !important;
+  max-width: calc(100% - 8px);
+}
+
+.orion-native .stage-slot-invite-title {
+  font-size: 11px !important;
+}
+
+.orion-native .stage-slot-invite-sub {
+  font-size: 8px !important;
+}
+
+.live-presence-fab:not(.live-presence-fab--inline) {
+  position: fixed;
+  top: calc(54px + env(safe-area-inset-top, 0px));
+  right: 10px;
+  z-index: 95;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(57, 255, 136, 0.35);
+  background: rgba(2, 14, 10, 0.88);
+  color: #39ff88;
+  cursor: pointer;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
+}
+
+.live-presence-fab--open {
+  background: rgba(57, 255, 136, 0.18);
+}
+
+.live-presence-fab-count {
+  font-size: 11px;
+  font-weight: 700;
+  min-width: 14px;
+  text-align: center;
+}
+
+.live-presence-scrim,
+.mobile-sheet-scrim {
+  position: fixed;
+  inset: 0;
+  z-index: 1250;
+  border: 0;
+  background: rgba(0, 0, 0, 0.45);
+  cursor: pointer;
+}
+
+.mobile-sheet-scrim {
+  z-index: 1250;
+}
+
+.live-presence-sheet {
+  position: fixed;
+  left: 12px;
+  right: 12px;
+  top: calc(96px + env(safe-area-inset-top, 0px));
+  z-index: 106;
+  max-height: min(50svh, 360px);
+  border-radius: 14px;
+  border: 1px solid rgba(57, 255, 136, 0.22);
+  background: rgba(2, 14, 10, 0.96);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+}
+
+.live-presence-sheet-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 12px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #39ff88;
+  border-bottom: 1px solid rgba(57, 255, 136, 0.12);
+}
+
+.live-presence-sheet-close {
+  border: 0;
+  background: transparent;
+  color: rgba(232, 255, 244, 0.7);
+  font-size: 16px;
+  cursor: pointer;
+  padding: 2px 6px;
+}
+
+.live-presence-list {
+  list-style: none;
+  margin: 0;
+  padding: 6px 8px 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  flex: 1 1 auto;
+}
+
+.live-presence-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto auto;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 8px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.live-presence-name {
+  min-width: 0;
+  font-size: 11px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: transparent;
+  border: 0;
+  color: inherit;
+  padding: 0;
+  text-align: left;
+  max-width: 100%;
+}
+
+.live-presence-name-text {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.live-presence-role {
+  margin-left: 0;
+  flex: 0 0 auto;
+  font-size: 8px;
+  padding: 1px 4px;
+  border-radius: 999px;
+  border: 1px solid rgba(57, 255, 136, 0.35);
+  color: #39ff88;
+}
+
+.live-presence-badge {
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  padding: 2px 5px;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+.live-presence-badge--stage {
+  background: rgba(57, 255, 136, 0.16);
+  color: #7fffbf;
+  border: 1px solid rgba(57, 255, 136, 0.35);
+}
+
+.live-presence-badge--watching {
+  background: rgba(0, 240, 255, 0.12);
+  color: #7dd3fc;
+  border: 1px solid rgba(0, 240, 255, 0.28);
+}
+
+.live-presence-badge--lurking {
+  background: rgba(148, 163, 184, 0.12);
+  color: rgba(203, 213, 225, 0.85);
+  border: 1px solid rgba(148, 163, 184, 0.22);
+}
+
+.live-presence-badge--request {
+  background: rgba(251, 191, 36, 0.16);
+  color: #fcd34d;
+  border: 1px solid rgba(251, 191, 36, 0.4);
+}
+
+.live-presence-name--action {
+  border: 0;
+  background: transparent;
+  color: inherit;
+  text-align: left;
+  padding: 0;
+  cursor: pointer;
+  font: inherit;
+}
+
+.live-presence-name--action:hover:not(:disabled) {
+  color: #7fffbf;
+}
+
+.live-presence-fab-alert {
+  color: #fbbf24;
+  font-size: 14px;
+  line-height: 1;
+}
+
+.live-presence-actions {
+  display: flex;
+  gap: 3px;
+}
+
+.live-presence-actions .secondary {
+  font-size: 8px !important;
+  padding: 2px 6px !important;
+  min-height: 24px !important;
+}
+
+.orion-native .live-host-panel {
+  display: block !important;
+  margin: 0 0 8px;
+  padding: 8px;
+  position: relative;
+  z-index: 25;
+  flex-shrink: 0;
+  pointer-events: auto;
+}
+
+.orion-native .live-host-panel-toggle {
+  min-height: 44px;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  pointer-events: auto !important;
+}
+
+.orion-native .live-host-panel-body {
+  max-height: min(40svh, 280px);
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.orion-native .live-host-panel-close {
+  min-height: 44px;
+  margin-top: 4px;
+}
+
+.orion-native .live-host-roster-actions .secondary,
+.orion-native .live-presence-actions .secondary {
+  font-size: 9px !important;
+  padding: 4px 8px !important;
+  min-height: 28px !important;
+  touch-action: manipulation;
+}
+
+.orion-native .live-host-stage-up {
+  border-color: rgba(57, 255, 136, 0.55) !important;
+  color: #39ff88 !important;
+}
+
+.live-presence-panel--inline {
+  border: 1px solid rgba(57, 255, 136, 0.18);
+  border-radius: 12px;
+  background: rgba(2, 14, 10, 0.92);
+  overflow: hidden;
+}
+
+.live-presence-toggle {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 10px;
+  width: 100%;
+  padding: 8px 10px;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.live-presence-title {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #39ff88;
+}
+
+.live-presence-stats {
+  flex: 1 1 auto;
+  font-size: 10px;
+  color: rgba(232, 255, 244, 0.62);
+}
+
+.live-presence-chevron {
+  font-size: 10px;
+  color: rgba(232, 255, 244, 0.5);
+}
+
+.studio-thumb-card--readonly {
+  cursor: default !important;
+}
+
+.mobile-settings-sheet {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: calc(68px + env(safe-area-inset-bottom, 0px));
+  z-index: 1260;
+  max-height: min(58svh, 440px);
+  border-radius: 16px 16px 0 0;
+  border: 1px solid rgba(57, 255, 136, 0.22);
+  background: rgba(2, 14, 10, 0.98);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow: 0 -12px 40px rgba(0, 0, 0, 0.55);
+}
+
+.mobile-settings-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 12px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #39ff88;
+  border-bottom: 1px solid rgba(57, 255, 136, 0.12);
+}
+
+.mobile-settings-close {
+  border: 0;
+  background: transparent;
+  color: rgba(232, 255, 244, 0.7);
+  font-size: 16px;
+  cursor: pointer;
+  padding: 2px 6px;
+  min-width: 32px;
+  min-height: 32px;
+  pointer-events: auto !important;
+  position: relative;
+  z-index: 2;
+}
+
+.mobile-settings-body {
+  padding: 8px 10px 12px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.mobile-settings-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid rgba(57, 255, 136, 0.16);
+  background: rgba(255, 255, 255, 0.03);
+  color: #e8fff4;
+  font-size: 12px;
+  cursor: pointer;
+  text-align: left;
+}
+
+.mobile-settings-item svg {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.6;
+}
+
+.mobile-settings-item--hot {
+  border-color: rgba(57, 255, 136, 0.45);
+  background: rgba(57, 255, 136, 0.1);
+  color: #7fffbf;
+}
+
+.mobile-settings-layout {
+  padding: 8px 4px 4px;
+}
+
+.mobile-settings-layout-label {
+  display: block;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: rgba(232, 255, 244, 0.62);
+  margin-bottom: 8px;
+}
+
+.mobile-settings-layout-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.mobile-settings-layout-pills .cam-layout-pill {
+  min-width: 40px;
+  padding: 6px 8px;
+  font-size: 11px;
+}
+
+/* APK: winners + lives rails under toolbar */
+.orion-native .studio-stage-rails {
+  gap: 5px;
+  margin: 0 0 6px;
+}
+
+.orion-native .studio-winners-rail,
+.orion-native .studio-lives-rail {
+  padding: 4px 6px;
+  border-radius: 8px;
+}
+
+.orion-native .studio-rail-label {
+  font-size: 8px;
+  min-width: 48px;
+}
+
+.orion-native .studio-rail-scroll {
+  gap: 5px;
+  scrollbar-width: none;
+}
+
+.orion-native .studio-rail-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.orion-native .studio-winner-pill,
+.orion-native .studio-live-pill {
+  font-size: 9px !important;
+  max-width: 150px;
+  min-height: 26px;
+  padding: 2px 8px !important;
+}
+
+.orion-native .studio-live-pill-title {
+  max-width: 90px;
+}
+
+.orion-native .battle-league-board {
+  margin-top: 6px;
+  padding: 6px;
+}
+
+.orion-native .battle-league-board .battle-league-list {
+  max-height: 180px;
+}
+
+.orion-native .battle-league-board .battle-league-row {
+  font-size: 9px;
+  padding: 4px 6px;
+  grid-template-columns: 18px minmax(0, 1fr) auto auto;
+}
+
+/* ── APK thermal / GPU — keep features, drop decorative CPU work ── */
+html.orion-native body::before {
+  animation: none !important;
+  opacity: 0.22;
+}
+
+html.orion-native .theme-matrix .matrix-grid-fade {
+  display: none;
+}
+
+.orion-native .royale-elim-label {
+  animation: elim-label-in 0.35s ease-out 0.55s both !important;
+}
+
+.orion-native .elim-border-pulse,
+.orion-native .elim-sweep,
+.orion-native .winner-glow,
+.orion-native .battle2p-pulse,
+.orion-native .chip--pulse,
+.orion-native .friends-live-pulse,
+.orion-native .tiktok-live-msg {
+  animation: none !important;
+}
+
+.orion-native .live-toolbar {
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.28) !important;
+}
+
+.orion-native .tiktok-stage-mic-badge {
+  position: absolute;
+  left: 6px;
+  bottom: 6px;
+  z-index: 4;
+  padding: 2px 6px;
+  border-radius: 999px;
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  background: rgba(0, 0, 0, 0.55);
+  border: 1px solid rgba(57, 255, 136, 0.35);
+  color: rgba(232, 255, 244, 0.9);
+  pointer-events: none;
+}

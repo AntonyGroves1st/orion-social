@@ -1,0 +1,570 @@
+/**
+ * Orion Social — Desktop UI remaster (≥1024px)
+ * Studio layout: wide stage + right chat rail, calmer palette, grouped controls.
+ */
+
+@media (min-width: 900px) {
+  :root {
+    --bg: #07090d;
+    --bg2: #0c1018;
+    --panel: rgba(14, 18, 28, 0.88);
+    --panel-strong: rgba(18, 24, 36, 0.96);
+    --line: rgba(148, 163, 184, 0.14);
+    --line-strong: rgba(125, 211, 252, 0.22);
+    --txt: #f1f5f9;
+    --muted: rgba(203, 213, 225, 0.72);
+    --matrix-green: #34d399;
+    --matrix-bright: #6ee7b7;
+    --matrix-cyan: #38bdf8;
+    --accent: #7dd3fc;
+    --accent2: #34d399;
+    --accent-soft: rgba(56, 189, 248, 0.1);
+    --glow-cyan: rgba(56, 189, 248, 0.28);
+    --glow-green: rgba(52, 211, 153, 0.24);
+    --radius-lg: 16px;
+    --radius-md: 12px;
+    --panel-depth-shadow:
+      0 24px 64px rgba(0, 0, 0, 0.55),
+      0 0 0 1px rgba(148, 163, 184, 0.08),
+      inset 0 1px 0 rgba(255, 255, 255, 0.04);
+    --neon-text-shadow: none;
+  }
+
+  body {
+    background-image:
+      radial-gradient(ellipse 80% 50% at 50% -10%, rgba(56, 189, 248, 0.08), transparent 55%),
+      radial-gradient(ellipse 60% 40% at 100% 100%, rgba(52, 211, 153, 0.05), transparent 50%),
+      linear-gradient(180deg, var(--bg) 0%, #050608 100%);
+    background-size: 100% 100%;
+    font-family:
+      'Segoe UI',
+      system-ui,
+      -apple-system,
+      IBM Plex Mono,
+      sans-serif;
+  }
+
+  body::before,
+  body::after {
+    display: none !important;
+  }
+
+  .shell-wrap--room {
+    max-width: min(1680px, 100%);
+    padding: 0 20px 20px;
+  }
+
+  .shell:has(.tiktok-live-root) {
+    max-width: min(1680px, 100%);
+  }
+
+  /* ── Studio toolbar ─────────────────────────────────────────────────── */
+  .live-toolbar--studio {
+    position: sticky;
+    top: 0;
+    z-index: 1100;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 0 -4px 16px;
+    padding: 12px 16px;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--line);
+    background: rgba(2, 10, 6, 0.96);
+    backdrop-filter: blur(16px) saturate(1.2);
+    box-shadow: var(--panel-depth-shadow);
+  }
+
+  .live-toolbar--studio .live-toolbar-row--top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    min-width: 0;
+  }
+
+  .live-toolbar--studio .live-toolbar-row--controls {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .live-toolbar--studio .orion-build-stamp {
+    display: none;
+  }
+
+  .live-toolbar--studio .live-toolbar-nav {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .live-toolbar--studio .live-toolbar-nav .matrix-link-back {
+    padding: 8px 14px;
+    border-radius: 999px;
+    border: 1px solid var(--line);
+    background: rgba(255, 255, 255, 0.03);
+    color: var(--txt);
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    transition: border-color 0.15s, background 0.15s;
+  }
+
+  .live-toolbar--studio .live-toolbar-nav .matrix-link-back:hover {
+    border-color: var(--line-strong);
+    background: rgba(56, 189, 248, 0.08);
+  }
+
+  .live-toolbar--studio .live-toolbar-meta {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    min-width: 0;
+    flex: 1 1 auto;
+    justify-content: flex-end;
+  }
+
+  .live-toolbar--studio .matrix-session-id {
+    border: none;
+    background: transparent;
+    padding: 0;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    color: var(--txt);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: min(480px, 45vw);
+  }
+
+  .live-toolbar--studio .live-badge-live {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 10px;
+    border-radius: 999px;
+    background: rgba(239, 68, 68, 0.15);
+    border: 1px solid rgba(239, 68, 68, 0.35);
+    color: #fca5a5;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  .live-toolbar--studio .live-badge-live::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #ef4444;
+    box-shadow: 0 0 8px rgba(239, 68, 68, 0.8);
+    animation: tiktok-pulse 1.6s ease-in-out infinite;
+  }
+
+  .live-toolbar--studio .live-toolbar-controls,
+  .live-toolbar--studio .live-toolbar-actions {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex-wrap: wrap;
+  }
+
+  .live-toolbar--studio button {
+    min-height: 36px;
+    padding: 0 14px !important;
+    border-radius: 10px !important;
+    font-size: 12px !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.03em !important;
+    text-transform: none !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+
+  .live-toolbar--studio button.primary {
+    background: linear-gradient(135deg, rgba(56, 189, 248, 0.35), rgba(52, 211, 153, 0.25)) !important;
+    border: 1px solid rgba(125, 211, 252, 0.45) !important;
+    color: #f8fafc !important;
+  }
+
+  .live-toolbar--studio button.secondary {
+    background: rgba(255, 255, 255, 0.04) !important;
+    border: 1px solid var(--line) !important;
+    color: var(--muted) !important;
+  }
+
+  .live-toolbar--studio button.secondary:hover {
+    border-color: var(--line-strong) !important;
+    color: var(--txt) !important;
+  }
+
+  .live-toolbar--studio .live-toolbar-divider {
+    width: 1px;
+    height: 24px;
+    background: var(--line);
+    margin: 0 4px;
+  }
+
+  /* Hide noisy hints on desktop studio */
+  .shell-wrap--room .tiktok-live-hint,
+  .shell-wrap--room .matrix-hint,
+  .shell-wrap--room .matrix-status-line {
+    display: none !important;
+  }
+
+  .cam-warn-toast {
+    top: 88px;
+    max-width: 420px;
+    border-radius: var(--radius-md);
+    border: 1px solid rgba(251, 191, 36, 0.35);
+    background: rgba(15, 18, 28, 0.94);
+    backdrop-filter: blur(12px);
+    font-size: 12px;
+    letter-spacing: 0;
+  }
+
+  /* ── Main studio grid: stage | sidebar ────────────────────────────── */
+  .tiktok-live-root {
+    height: calc(100svh - 88px);
+  }
+
+  .tiktok-live-main {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) min(400px, 34vw);
+    grid-template-rows: minmax(0, 1fr) auto auto;
+    grid-template-areas:
+      'stage chat'
+      'filmstrip chat'
+      'filmstrip agents';
+    gap: 16px;
+    align-items: stretch;
+  }
+
+  .tiktok-live-main:not(:has(.tiktok-filmstrip)) {
+    grid-template-rows: minmax(0, 1fr) auto;
+    grid-template-areas:
+      'stage chat'
+      'stage agents';
+  }
+
+  .tiktok-stage-shell {
+    grid-area: stage;
+    min-height: 0;
+  }
+
+  .tiktok-stage-shell--battle {
+    flex: 1 1 auto !important;
+    height: auto !important;
+    max-height: calc(100% - 112px) !important;
+    min-height: min(420px, calc(100% - 112px));
+    gap: 16px;
+    padding: 4px;
+    border-radius: var(--radius-lg);
+    background: rgba(0, 0, 0, 0.35);
+    border: 1px solid var(--line);
+  }
+
+  .tiktok-stage-shell--battle .tiktok-stage {
+    max-width: none;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.45);
+    background: #000;
+  }
+
+  .tiktok-stage-shell--royale,
+  .tiktok-stage-shell--royale-live {
+    height: auto !important;
+    max-height: calc(100% - 112px) !important;
+    flex: 1 1 auto !important;
+    gap: 8px;
+    padding: 4px;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--line);
+    background: rgba(0, 0, 0, 0.35);
+  }
+
+  .tiktok-stage-shell--royale .tiktok-stage {
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+  }
+
+  .tiktok-stage-badge {
+    /* Bottom-left above score bar — not clipped by left edge or green bar */
+    top: auto !important;
+    bottom: 28px !important;
+    left: 14px !important;
+    right: auto !important;
+    z-index: 15 !important;
+    max-width: calc(100% - 28px) !important;
+    padding: 6px 12px !important;
+    border-radius: 8px !important;
+    font-size: 11px !important;
+    letter-spacing: 0.06em !important;
+    background: rgba(0, 0, 0, 0.72) !important;
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.12) !important;
+    text-shadow: none !important;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  /* Heart likes — drop below the top edge / BG row so it isn’t jammed in the corner */
+  .like-power-badge {
+    top: 40px !important;
+    left: 12px !important;
+    z-index: 16 !important;
+  }
+
+  /* Pull the live feed in slightly so edge overlays stay readable */
+  .tiktok-stage.battle-host-stage .tiktok-stage-video,
+  .tiktok-stage.battle-host-stage video.tiktok-stage-video {
+    object-fit: cover !important;
+    object-position: center center !important;
+    transform: scale(0.94) !important;
+    transform-origin: center center !important;
+    border-radius: 6px;
+  }
+
+  .tiktok-filmstrip {
+    grid-area: auto;
+    display: flex !important;
+    flex: 0 0 auto !important;
+    flex-shrink: 0 !important;
+    gap: 10px;
+    padding: 8px 10px;
+    margin: 0;
+    min-height: 100px;
+    visibility: visible !important;
+  }
+
+  .studio-stage-column .tiktok-filmstrip.studio-filmstrip--guest-rail {
+    grid-area: auto;
+  }
+
+  .tiktok-filmstrip .tiktok-mini {
+    width: 72px !important;
+    flex: 0 0 72px;
+    border-radius: 12px !important;
+    overflow: hidden;
+    border: 2px solid transparent !important;
+    transition: border-color 0.15s, transform 0.15s;
+  }
+
+  .studio-filmstrip--guest-rail .tiktok-mini.studio-thumb-card {
+    width: 72px !important;
+    min-width: 72px !important;
+    flex: 0 0 72px !important;
+  }
+
+  .tiktok-filmstrip .tiktok-mini:hover {
+    border-color: var(--accent) !important;
+    transform: translateY(-2px);
+  }
+
+  .tiktok-filmstrip .live-label {
+    font-size: 10px;
+    letter-spacing: 0.04em;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.75));
+  }
+
+  /* ── Right sidebar: chat + agents ─────────────────────────────────── */
+  .royale-chat-wrap {
+    grid-area: chat;
+    min-height: 0;
+    max-height: none !important;
+    flex: 1 1 auto !important;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--line);
+    background: var(--panel);
+    box-shadow: var(--panel-depth-shadow);
+  }
+
+  .royale-chat-wrap .tiktok-live-chat--floating .tiktok-live-msg {
+    border-radius: 12px !important;
+    max-width: 100% !important;
+    font-size: 13px;
+    letter-spacing: 0;
+    backdrop-filter: blur(8px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    animation: none;
+  }
+
+  .royale-chat-wrap .tiktok-live-chat--floating .tiktok-live-chat-compose {
+    padding: 12px;
+    border-top: 1px solid var(--line);
+    background: rgba(0, 0, 0, 0.2);
+  }
+
+  .royale-chat-wrap .tiktok-live-chat--floating .tiktok-live-chat-compose input {
+    border-radius: 10px;
+    font-size: 14px;
+    letter-spacing: 0;
+    min-height: 42px;
+  }
+
+  .agent-dock {
+    grid-area: agents;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+    padding: 14px 16px;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--line);
+    background: var(--panel);
+    box-shadow: var(--panel-depth-shadow);
+  }
+
+  .agent-dock-title {
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin-bottom: 8px;
+  }
+
+  .agent-dock-list {
+    gap: 8px;
+  }
+
+  .agent-chip {
+    padding: 8px 12px !important;
+    border-radius: 8px !important;
+    font-size: 11px !important;
+    letter-spacing: 0.04em !important;
+  }
+
+  .agent-dock > button {
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* ── Battle drawer: wider panel ───────────────────────────────────── */
+  .battle-drawer {
+    width: min(100%, 960px);
+    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+    border: 1px solid var(--line);
+    background: var(--panel-strong);
+    box-shadow: 0 -24px 64px rgba(0, 0, 0, 0.5);
+  }
+
+  .battle-drawer--open {
+    max-height: min(48svh, 520px);
+  }
+
+  .battle-drawer-handle {
+    padding: 12px 20px;
+    letter-spacing: 0.04em;
+  }
+
+  /* ── App nav polish ───────────────────────────────────────────────── */
+  .top-nav {
+    padding: 12px 0 16px;
+    gap: 8px;
+  }
+
+  .nav-pill {
+    padding: 10px 18px;
+    border-radius: 999px;
+    font-size: 13px;
+    letter-spacing: 0.02em;
+    text-shadow: none;
+  }
+
+  .brand-bar {
+    letter-spacing: 0.12em;
+    text-shadow: none;
+  }
+
+  .lobby-page {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .live-launch-strip {
+    border-radius: var(--radius-lg);
+    padding: 16px 20px;
+  }
+
+  .card.elevate {
+    border-radius: var(--radius-lg);
+    box-shadow: var(--panel-depth-shadow);
+  }
+
+  .studio-chat-wrap .tiktok-live-msg-edit-btn,
+  .royale-chat-wrap .tiktok-live-msg-edit-btn {
+    display: inline-flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    min-width: 56px !important;
+    min-height: 28px !important;
+    font-size: 11px !important;
+    font-weight: 800 !important;
+    letter-spacing: 0.1em !important;
+    padding: 4px 12px !important;
+    margin-left: auto !important;
+    flex-shrink: 0 !important;
+    border: 1px solid rgba(56, 189, 248, 0.55) !important;
+    color: #6ee7b7 !important;
+    background: rgba(8, 14, 22, 0.95) !important;
+    border-radius: 8px !important;
+  }
+
+  .studio-chat-wrap .tiktok-live-msg,
+  .royale-chat-wrap .tiktok-live-msg {
+    overflow: visible !important;
+  }
+}
+
+@media (min-width: 1280px) {
+  .tiktok-live-main {
+    grid-template-columns: minmax(0, 1fr) 420px;
+  }
+
+  .tiktok-stage-shell--battle {
+    min-height: 520px;
+  }
+}
+
+/* Desktop stage rails + league board polish */
+@media (min-width: 900px) {
+  .studio-stage-rails {
+    gap: 8px;
+    margin-bottom: 10px;
+  }
+
+  .studio-winners-rail,
+  .studio-lives-rail {
+    padding: 6px 10px;
+  }
+
+  .studio-rail-label {
+    font-size: 10px;
+    min-width: 64px;
+  }
+
+  .studio-winner-pill,
+  .studio-live-pill {
+    font-size: 11px !important;
+  }
+
+  .battle-league-board .battle-league-row {
+    font-size: 11px;
+    padding: 6px 8px;
+  }
+
+  .live-toolbar--studio .live-toolbar-meta {
+    gap: 12px;
+  }
+
+  .live-toolbar--studio .live-badge-live {
+    font-size: 11px;
+  }
+}

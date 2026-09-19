@@ -1,0 +1,16 @@
+{
+  "name": "orion-anchor-node",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Always-on Orion signed heartbeat anchor node.",
+  "scripts": {
+    "start": "node src/anchor-node.mjs"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.49.4"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

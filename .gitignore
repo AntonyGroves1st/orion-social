@@ -1,0 +1,65 @@
+web/node_modules/
+web/dist/
+web/.env
+web/.env.local
+web/.env.*.local
+!web/.env.example
+services/orion-anchor-node/.env
+services/orion-anchor-node/.orion-anchor/
+services/orion-payments/.env
+services/orion-payments/src/.env
+.env
+.env.local
+*.zip
+*.log
+
+# EXE packaging — staged web files and built binaries (generated, not committed)
+packaging/launcher/www/
+packaging/launcher/node_modules/
+packaging/output/*.exe
+packaging/output/*.apk
+packaging/output/*.app
+packaging/output/OrionSocial-mac
+packaging/output/OrionSocial-linux
+
+# Capacitor Android (native project is committed; build artifacts are not)
+web/android/.gradle/
+web/android/app/build/
+web/android/build/
+web/android/local.properties
+web/android/.idea/
+
+# Supabase CLI (linked project metadata)
+supabase/.temp/
+supabase/.branches/
+
+**/__pycache__/
+*.pyc
+.pytest_cache/
+.skyfield-data/
+
+# === OPEN SOURCE HARD BLOCKS (never publish) ===
+*.rar
+*.7z
+orion-social.rar
+**/.env
+**/.env.*
+!**/.env.example
+!**/.env*.example
+artifacts/
+packaging/launcher/www/
+packaging/launcher/public/
+web/android/app/src/main/assets/public/
+**/local.properties
+**/*service*role*
+**/secrets/
+**/credentials/
+admin_sessions.json
+admin_auth.json
+
+
+# Dependencies & build dumps (never publish)
+**/node_modules/
+packaging/output/
+web/android/app/build/
+web/android/build/

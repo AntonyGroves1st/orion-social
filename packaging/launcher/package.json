@@ -1,0 +1,31 @@
+{
+  "name": "orion-social-launcher",
+  "version": "1.0.0",
+  "description": "Orion Social Desktop Launcher — bundled with pkg into a single EXE",
+  "main": "server.js",
+  "bin": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "build:win": "pkg . --output ../output/OrionSocial.exe --targets node20-win-x64 --compress GZip",
+    "build:mac-x64": "pkg . --output ../output/OrionSocial-mac-x64 --targets node20-macos-x64 --compress GZip",
+    "build:mac-arm64": "pkg . --output ../output/OrionSocial-mac-arm64 --targets node20-macos-arm64 --compress GZip",
+    "build:mac": "npm run build:mac-x64 && npm run build:mac-arm64",
+    "build:all": "pkg server.js --output ../output/OrionSocial --targets node20-win-x64,node20-macos-x64,node20-macos-arm64 --compress GZip"
+  },
+  "devDependencies": {
+    "@yao-pkg/pkg": "^5.11.5"
+  },
+  "pkg": {
+    "assets": [
+      "www/**/*",
+      "www/index.html"
+    ],
+    "scripts": [
+      "server.js"
+    ],
+    "targets": [
+      "node20-win-x64"
+    ],
+    "outputPath": "../output"
+  }
+}

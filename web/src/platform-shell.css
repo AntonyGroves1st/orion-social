@@ -1,0 +1,111 @@
+/* Cross-platform shell — phones (all sizes), tablets, Windows/Mac desktop, PWA */
+
+:root {
+  --orion-safe-top: env(safe-area-inset-top, 0px);
+  --orion-safe-right: env(safe-area-inset-right, 0px);
+  --orion-safe-bottom: env(safe-area-inset-bottom, 0px);
+  --orion-safe-left: env(safe-area-inset-left, 0px);
+  --orion-viewport-h: 100vh;
+}
+
+@supports (height: 100dvh) {
+  :root {
+    --orion-viewport-h: 100dvh;
+  }
+}
+
+html,
+body,
+#root {
+  min-height: var(--orion-viewport-h);
+}
+
+/* iOS / notch / Dynamic Island — needs viewport-fit=cover in index.html */
+.orion-native-ios,
+.orion-os-ios,
+.orion-pwa.orion-form-phone {
+  padding-left: var(--orion-safe-left);
+  padding-right: var(--orion-safe-right);
+}
+
+.orion-native-ios .live-room--studio,
+.orion-os-ios .live-room--studio {
+  min-height: var(--orion-viewport-h);
+}
+
+/* Very small phones (iPhone SE, budget Android) */
+.orion-narrow-phone .live-toolbar--studio {
+  padding-left: 6px !important;
+  padding-right: 6px !important;
+}
+
+.orion-narrow-phone .mobile-room-footer .mobile-room-action {
+  min-width: 44px;
+  padding-inline: 6px;
+}
+
+.orion-narrow-phone .studio-thumb-label,
+.orion-narrow-phone .tiktok-stage-badge {
+  font-size: 10px;
+}
+
+/* Tablets — more stage room, still touch footer */
+.orion-form-tablet.orion-touch .studio-layout.tiktok-live-main {
+  padding-bottom: calc(88px + var(--orion-safe-bottom)) !important;
+}
+
+/* Foldables / resizable Android windows */
+.orion-native-android .live-room--studio,
+.orion-os-android .live-room--studio {
+  min-height: var(--orion-viewport-h);
+}
+
+/* Windows / Mac desktop launcher (pkg binary) */
+.orion-desktop.orion-os-windows .live-room--studio,
+.orion-desktop.orion-os-mac .live-room--studio {
+  min-height: 100vh;
+}
+
+/* Desktop / EXE: hide winners+lives rails — they steal vertical space from the stage */
+.orion-desktop .studio-stage-rails,
+html:not(.orion-native) .live-room--studio .studio-stage-rails {
+  display: none !important;
+}
+
+/* Mac — respect traffic-light inset when windowed (Electron-style N/A for pkg; browser chrome only) */
+.orion-os-mac.orion-pointer-fine .live-toolbar--studio {
+  -webkit-app-region: no-drag;
+}
+
+/* Landscape phones — shrink chrome, keep stage visible */
+@media (orientation: landscape) and (max-height: 500px) {
+  .orion-form-phone .live-toolbar--studio.live-toolbar--slim {
+    padding-top: 4px !important;
+    padding-bottom: 4px !important;
+  }
+
+  .orion-form-phone .mobile-room-footer,
+  .orion-form-phone .mobile-room-footer--portaled {
+    padding-block: 4px !important;
+  }
+
+  .orion-form-phone .studio-stage-column .tiktok-stage-shell {
+    max-height: calc(var(--orion-viewport-h) - 96px - var(--orion-safe-top) - var(--orion-safe-bottom));
+  }
+}
+
+/* PWA installed to home screen — same safe areas as native */
+.orion-pwa .live-room--live-footer {
+  padding-bottom: calc(72px + var(--orion-safe-bottom));
+}
+
+/* Pointer vs touch — larger hit targets on touch devices */
+.orion-touch button,
+.orion-touch .mobile-room-action,
+.orion-touch .stage-slot-fab {
+  min-height: 44px;
+}
+
+.orion-pointer-fine .mobile-room-action {
+  min-height: 36px;
+}

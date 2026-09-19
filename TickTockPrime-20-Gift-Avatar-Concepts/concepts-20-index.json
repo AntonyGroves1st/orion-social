@@ -1,0 +1,41 @@
+{
+  "product": "Tick Tock Prime",
+  "source_brand": "Orion Key",
+  "theme": ["space", "encryption"],
+  "file": "CONCEPTS-20-gift-avatars.md",
+  "status": "added_to_battle_gifts",
+  "catalog": {
+    "web": "web/src/lib/battleMode.ts → ORION_KEY_AVATAR_GIFTS",
+    "payments": "services/orion-payments/src/gift-catalog.mjs → animatedSeed (NEW block)"
+  },
+  "palette_anchors": {
+    "void_navy": "#0B0F1A",
+    "orion_gold": "#F5A623",
+    "cipher_teal": "#2DD4BF",
+    "star_white": "#E8EEF7",
+    "nebula_ink": "#1A1030"
+  },
+  "ritual_beats": ["secret", "sky_pin", "seal"],
+  "concepts": [
+    { "id": 1, "name": "Nebula Ghost", "rarity": "Rare", "gift_id": "nebula-ghost", "baseCost": 36, "power": 4, "godmode": 2, "effectClass": "vortex", "weapon": "👻" },
+    { "id": 2, "name": "Void Sentinel", "rarity": "Epic", "gift_id": "void-sentinel", "baseCost": 68, "power": 7, "godmode": 3, "effectClass": "shield-break", "weapon": "🛡️" },
+    { "id": 3, "name": "Cipher Astronaut", "rarity": "Common", "gift_id": "cipher-astronaut", "baseCost": 16, "power": 2, "godmode": 1, "effectClass": "neon", "weapon": "🧑‍🚀" },
+    { "id": 4, "name": "Quantum Fox", "rarity": "Rare", "gift_id": "quantum-fox", "baseCost": 34, "power": 4, "godmode": 2, "effectClass": "spark-net", "weapon": "🦊" },
+    { "id": 5, "name": "Black-Hole Crown", "rarity": "Legendary", "gift_id": "black-hole-crown", "baseCost": 120, "power": 10, "godmode": 6, "effectClass": "solar", "weapon": "👑" },
+    { "id": 6, "name": "Geo-30 Lattice Mage", "rarity": "Epic", "gift_id": "geo-30-lattice-mage", "baseCost": 72, "power": 7, "godmode": 4, "effectClass": "godmode-key", "weapon": "🧙" },
+    { "id": 7, "name": "Dual-Control Twin Keys", "rarity": "Legendary", "gift_id": "dual-control-twin-keys", "baseCost": 130, "power": 10, "godmode": 6, "effectClass": "pulse-cannon", "weapon": "🔑" },
+    { "id": 8, "name": "Argon Pressure Titan", "rarity": "Epic", "gift_id": "argon-pressure-titan", "baseCost": 70, "power": 7, "godmode": 3, "effectClass": "thunder", "weapon": "💪" },
+    { "id": 9, "name": "Star-Tracker Owl", "rarity": "Common", "gift_id": "star-tracker-owl", "baseCost": 14, "power": 2, "godmode": 1, "effectClass": "neon", "weapon": "🦉" },
+    { "id": 10, "name": "Sealed Token Djinn", "rarity": "Rare", "gift_id": "sealed-token-djinn", "baseCost": 38, "power": 5, "godmode": 2, "effectClass": "vortex", "weapon": "🧞" },
+    { "id": 11, "name": "Mars Horizon Pilgrim", "rarity": "Epic", "gift_id": "mars-horizon-pilgrim", "baseCost": 66, "power": 6, "godmode": 3, "effectClass": "meteor", "weapon": "🪐" },
+    { "id": 12, "name": "Cipher Seraph", "rarity": "Legendary", "gift_id": "cipher-seraph", "baseCost": 118, "power": 9, "godmode": 5, "effectClass": "solar", "weapon": "🪽" },
+    { "id": 13, "name": "Pulse-Code Comet Rider", "rarity": "Rare", "gift_id": "pulse-code-comet-rider", "baseCost": 32, "power": 4, "godmode": 2, "effectClass": "meteor", "weapon": "☄️" },
+    { "id": 14, "name": "Archive-Horizon Leviathan", "rarity": "Mythic", "gift_id": "archive-horizon-leviathan", "baseCost": 210, "power": 13, "godmode": 9, "effectClass": "frost", "weapon": "🐋" },
+    { "id": 15, "name": "Brain-Secret Sphinx", "rarity": "Epic", "gift_id": "brain-secret-sphinx", "baseCost": 64, "power": 6, "godmode": 3, "effectClass": "godmode-key", "weapon": "🦁" },
+    { "id": 16, "name": "Orbit Ring Dancer", "rarity": "Rare", "gift_id": "orbit-ring-dancer", "baseCost": 36, "power": 4, "godmode": 2, "effectClass": "neon", "weapon": "💫" },
+    { "id": 17, "name": "StrongBox Beetle", "rarity": "Common", "gift_id": "strongbox-beetle", "baseCost": 15, "power": 2, "godmode": 1, "effectClass": "spark-net", "weapon": "🪲" },
+    { "id": 18, "name": "Null-Cipher Phantom", "rarity": "Legendary", "gift_id": "null-cipher-phantom", "baseCost": 125, "power": 10, "godmode": 6, "effectClass": "glitch", "weapon": "🫥" },
+    { "id": 19, "name": "Constellation Keysmith", "rarity": "Epic", "gift_id": "constellation-keysmith", "baseCost": 74, "power": 7, "godmode": 4, "effectClass": "pulse-cannon", "weapon": "⚒️" },
+    { "id": 20, "name": "Assurance Throne Mythic", "rarity": "Mythic", "gift_id": "assurance-throne-mythic", "baseCost": 220, "power": 14, "godmode": 10, "effectClass": "solar", "weapon": "⚜️" }
+  ]
+}

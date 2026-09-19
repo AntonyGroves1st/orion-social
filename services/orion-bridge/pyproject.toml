@@ -1,0 +1,20 @@
+[project]
+name = "orion-social-bridge"
+version = "0.1.0"
+description = "Local FastAPI shim for Orion Key (orion-key package)"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+  "fastapi>=0.109",
+  "uvicorn[standard]>=0.27",
+]
+
+[project.scripts]
+orion-social-bridge = "main:main"
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+py-modules = ["main"]

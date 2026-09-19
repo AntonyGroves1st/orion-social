@@ -1,0 +1,295 @@
+/**
+ * Brave — WebRTC video often paints black under mix-blend overlays, backdrop-filter,
+ * and CSS transforms on the <video> element itself.
+ */
+
+.orion-brave .tiktok-stage,
+.orion-brave .tiktok-stage-shell,
+.orion-brave .stage-slot,
+.orion-brave .battle-host-stage,
+.orion-brave .studio-thumb-media,
+.orion-brave .live-local-offstage-media {
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+.orion-brave .tiktok-stage::before,
+.orion-brave .tiktok-stage::after {
+  display: none !important;
+  content: none !important;
+  opacity: 0 !important;
+  mix-blend-mode: normal !important;
+}
+
+/* Chrome/EXE: soften overlays — keep video visible (do not use mix-blend: screen). */
+.orion-safe-video .tiktok-stage::before,
+.orion-chrome .tiktok-stage::before,
+.orion-firefox .tiktok-stage::before {
+  mix-blend-mode: normal !important;
+  opacity: 0.22 !important;
+}
+
+.orion-safe-video .tiktok-stage::after,
+.orion-chrome .tiktok-stage::after,
+.orion-firefox .tiktok-stage::after {
+  opacity: 0.4 !important;
+}
+
+.orion-brave .stage-slot-fab,
+.orion-brave .stage-slot-bg-btn,
+.orion-chrome .stage-slot-fab,
+.orion-chrome .stage-slot-bg-btn,
+.orion-safe-video .stage-slot-fab,
+.orion-safe-video .stage-slot-bg-btn {
+  z-index: 120 !important;
+  transform: translate3d(0, 0, 4px);
+  -webkit-transform: translate3d(0, 0, 4px);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.orion-brave .tiktok-stage-video,
+.orion-brave .tiktok-stage .live-video,
+.orion-brave .studio-thumb-media video,
+.orion-brave .live-local-offstage-media video {
+  z-index: 2 !important;
+  position: absolute !important;
+  inset: 0;
+  width: 100% !important;
+  height: 100% !important;
+  transform: none !important;
+  will-change: auto !important;
+  object-fit: cover !important;
+  background: #000;
+  opacity: 1 !important;
+  visibility: visible !important;
+  mix-blend-mode: normal !important;
+}
+
+.orion-chrome .tiktok-stage-video,
+.orion-chrome .tiktok-stage .live-video,
+.orion-chrome .studio-thumb-media video,
+.orion-safe-video .tiktok-stage-video,
+.orion-safe-video .tiktok-stage .live-video,
+.orion-safe-video .studio-thumb-media video,
+.orion-firefox .tiktok-stage-video,
+.orion-firefox .tiktok-stage .live-video,
+.orion-firefox .studio-thumb-media video {
+  z-index: 0 !important;
+  position: absolute !important;
+  inset: 0;
+  width: 100% !important;
+  height: 100% !important;
+  transform: none !important;
+  will-change: auto !important;
+  object-fit: cover !important;
+  background: #000;
+}
+
+/* Mirror on a wrapper — never transform the WebRTC <video> in Brave. */
+.orion-brave .stage-video-mirror-wrap {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  overflow: hidden;
+  transform: scaleX(-1);
+}
+
+.orion-brave .stage-video-mirror-wrap video {
+  transform: none !important;
+}
+
+.orion-brave .stage-slot-picker,
+.orion-chrome .stage-slot-picker,
+.orion-safe-video .stage-slot-picker {
+  z-index: 130 !important;
+}
+
+.orion-brave .stage-slot-bg-btn {
+  display: inline-flex !important;
+}
+
+/* All browsers — keep controls above hardware-accelerated video */
+.stage-slot {
+  isolation: isolate;
+}
+
+.tiktok-stage.stage-slot .tiktok-stage-video,
+.tiktok-stage.stage-slot .live-video {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.tiktok-stage.stage-slot .stage-virtual-bg {
+  z-index: 1;
+}
+
+.tiktok-stage.stage-slot .tiktok-stage-badge,
+.tiktok-stage.stage-slot .battle-host-break {
+  z-index: 12;
+}
+
+.tiktok-stage.stage-slot .cam-volume-meter {
+  z-index: 14;
+}
+
+.tiktok-stage.stage-slot .stage-slot-fab {
+  z-index: 40;
+  top: 4px;
+  right: 4px;
+  width: 22px;
+  height: 22px;
+  min-width: 22px;
+  min-height: 22px;
+  font-size: 14px;
+  transform: translate3d(0, 0, 2px);
+}
+
+.tiktok-stage.stage-slot .stage-slot-bg-btn {
+  z-index: 41;
+  top: 4px;
+  right: 28px;
+  transform: translate3d(0, 0, 2px);
+}
+
+.tiktok-stage.stage-slot .stage-slot-picker {
+  z-index: 42;
+}
+
+.stage-slot-bg-btn {
+  position: absolute;
+  top: 4px;
+  right: 28px;
+  z-index: 41;
+  min-height: 20px;
+  padding: 0 6px;
+  border-radius: 999px;
+  border: 1px solid rgba(57, 255, 136, 0.55);
+  background: rgba(2, 18, 14, 0.96);
+  color: #39ff88;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  cursor: pointer;
+  touch-action: manipulation;
+  pointer-events: auto;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 10px rgba(57, 255, 136, 0.18);
+}
+
+.stage-slot-bg-btn:hover {
+  border-color: rgba(57, 255, 136, 0.85);
+  background: rgba(3, 24, 18, 0.98);
+}
+
+.stage-slot-bg-btn--live {
+  border-color: rgba(57, 255, 136, 0.9) !important;
+  background: rgba(57, 255, 136, 0.22) !important;
+  color: #e8fff4 !important;
+}
+
+.room-bg-file-label {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  margin: 0;
+}
+
+.orion-brave .stage-slot-bg-btn,
+.stage-slot--local .stage-slot-bg-btn {
+  display: inline-flex;
+}
+
+/* Gift FX portals — Brave stacking / WebGL blocks need visible CSS fallback */
+.orion-brave .battle-fx-portal,
+.orion-no-webgl .battle-fx-portal {
+  z-index: 99999 !important;
+  isolation: isolate;
+}
+
+.orion-brave .camera-battle-fx--css-only,
+.orion-no-webgl .camera-battle-fx--css-only {
+  background:
+    radial-gradient(circle at 50% 42%, hsl(var(--fx-hue, 142deg) 100% 62% / 0.42), transparent 52%),
+    radial-gradient(circle at 50% 50%, hsl(var(--fx-hue-2, 188deg) 100% 56% / 0.28), transparent 68%),
+    rgba(0, 0, 0, 0.55);
+}
+
+.orion-brave .camera-battle-fx-weapon,
+.orion-no-webgl .camera-battle-fx-weapon {
+  z-index: 3;
+}
+
+.stage-slot--local .stage-slot-fab {
+  width: 22px;
+  height: 22px;
+  min-width: 22px;
+  min-height: 22px;
+  font-size: 14px;
+}
+
+.live-local-offstage {
+  flex: 0 0 auto;
+  margin-bottom: 8px;
+}
+
+.live-local-offstage-card {
+  position: relative;
+  width: 120px;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(57, 255, 136, 0.35);
+  background: #010604;
+}
+
+.live-local-offstage-media {
+  position: relative;
+  aspect-ratio: 9 / 14;
+  min-height: 100px;
+}
+
+.live-local-offstage-media video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.live-local-offstage-label {
+  display: block;
+  padding: 4px 6px;
+  font-size: 9px;
+  text-align: center;
+  color: rgba(232, 255, 244, 0.75);
+}
+
+.live-local-offstage .stage-slot-fab {
+  top: 6px;
+  right: 6px;
+}
+
+.live-local-offstage .stage-slot-bg-btn {
+  top: 6px;
+  right: 46px;
+  display: inline-flex;
+}
+
+.visually-hidden-file-input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+  opacity: 0;
+  pointer-events: none;
+}

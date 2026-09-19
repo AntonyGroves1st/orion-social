@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Orion Social</string>
+    <string name="title_activity_main">Orion Social</string>
+    <string name="package_name">com.orion.social</string>
+    <string name="custom_url_scheme">com.orion.social</string>
+</resources>
